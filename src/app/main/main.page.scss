@@ -1,0 +1,170 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.main{
+    height: 100%;
+    width: 100%;
+}
+.first-section{
+    position: relative;
+    height: 70%;
+    width: 100%;
+    display: flex;
+
+}
+.second-container{
+    height: 15%;
+    width: 100%;
+    display: flex;
+
+}
+.third-container{
+    padding: 2%;
+    height: 15%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+
+}
+.maracas{
+    position: absolute;
+    top: 6%;
+    right: 50%;
+    height: 120px;
+    width: 120px;
+    transform: translate(50%, 0%)
+}
+.guitar{
+ 
+    position: absolute;
+    top: 50%;
+    right: 0%;
+    height: 120px;
+    width: 120px;
+}
+.drums{
+    position: absolute;
+    top: 50%;
+    left: 0%;
+    height: 120px;
+    width: 120px;
+}
+.play{
+    position: absolute;
+    top: 90%;
+    left: 50%;
+    height: 120px;
+    width: 120px;
+    transform: translate(-50%,-70%)
+}
+.part_first{
+    padding: 2%;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    height: 100;
+}
+.part_second{
+    padding: 2%;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+._1st{
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    height: 25%;
+    border-bottom: solid 2px;
+    border-bottom-color: lightcoral;
+}
+._2nd{
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    height: 25%;
+    border-bottom: solid 2px;
+    border-bottom-color: lightcoral;
+}
+._3th{
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    height: 25%;
+    border-bottom: solid 2px;
+    border-bottom-color: lightcoral;
+}
+._4th{
+    width: 100%;
+    height: 25%;
+}
+._5th{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 33%;
+    border-top: solid 2px;
+    border-top-color: lightcoral;
+}
+.astxik{
+    width: 0; 
+    height: 0; 
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent; 
+    border-top: 15px solid #bbb;
+    transform: translate(0%, -50%);
+    top: 100%;
+}
+._6th{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 33%;
+    border-top: solid 2px;
+    border-top-color: lightcoral;
+}
+.triangle{
+    width: 0; 
+    height: 0; 
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 15px solid #bbb;
+    transform: translate(0%, -50%);
+    top: 100%;
+}
+._7th{
+    width: 100%;
+    height: 33%;
+}
+.rotate-square {
+    height: 15px;
+    width: 15px;
+    background-color: #bbb;
+    position: relative;
+    top: 100%;   
+    transform: translate(0%,-50%) rotate(45deg);
+    
+}
+.square{
+    height: 15px;
+    width: 15px;
+    background-color: #bbb;
+    position: relative;
+    top: 100%;   
+    transform: translate(0%,-50%);
+}
+.circle{
+    height: 15px;
+    width: 15px;
+    background-color: #bbb;
+    position: relative;
+    border-radius: 50%;
+    top: 100%;   
+    transform: translate(0%,-50%);
+}
+.active{
+    background-color: lightcoral;
+}

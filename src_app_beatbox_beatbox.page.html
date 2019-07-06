@@ -1,0 +1,70 @@
+<ion-header>
+  <ion-toolbar color="dark-shade">
+    <ion-title>
+      <a class="link" routerLink="/home" routerLinkActive="active">
+        <div class="text">Beatmaker</div>
+      </a>
+    </ion-title>
+  </ion-toolbar>
+  <ion-toolbar color="dark-shade">
+    <div class="header-tools">
+      <a class="link" routerLink="/synthesis" routerLinkActive="active">
+        <i class="icon-drumstick"></i>
+        <div class="text">Synthesis</div>
+      </a>
+
+      <a class="link" routerLink="/beatbox" routerLinkActive="active">
+        <i class="icon-tambourine"></i>
+        <div class="text">Beatbox</div>
+      </a>
+
+      <a class="link" routerLink="/violin" routerLinkActive="active">
+        <i class="icon-bell"></i>
+        <div class="text">Violin</div>
+      </a>
+
+      <a class="link" routerLink="/drums" routerLinkActive="active">
+        <i class="icon-drum1"></i>
+        <div class="text">Drums</div>
+      </a>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <div class="drum-pad">
+
+    <div class="row" *ngFor="let tone of objectKeys(tones); let i = index">
+      <div class="pad" (touchstart)="tones[tone].exp[1] = !tones[tone].exp[1]"
+        [ngClass]="{'active' : tones[tone].exp[1], 'backlight' : ind.count == 1}">
+      </div>
+      <div class="pad" (touchstart)="tones[tone].exp[2] = !tones[tone].exp[2]"
+        [ngClass]="{'active' : tones[tone].exp[2], 'backlight' : ind.count == 2}">
+      </div>
+      <div class="pad" (touchstart)="tones[tone].exp[3] = !tones[tone].exp[3]"
+        [ngClass]="{'active' : tones[tone].exp[3], 'backlight' : ind.count == 3}">
+      </div>
+      <div class="pad" (touchstart)="tones[tone].exp[4] = !tones[tone].exp[4]"
+        [ngClass]="{'active' : tones[tone].exp[4], 'backlight' : ind.count == 4}">
+      </div>
+    </div>
+
+    <div class="row" *ngFor="let tone of objectKeys(tones); let i = index">
+      <div class="pad" (touchstart)="tones[tone].exp[5] = !tones[tone].exp[5]"
+        [ngClass]="{'active' : tones[tone].exp[5], 'backlight' : ind.count == 5}">
+      </div>
+      <div class="pad" (touchstart)="tones[tone].exp[6] = !tones[tone].exp[6]"
+        [ngClass]="{'active' : tones[tone].exp[6], 'backlight' : ind.count == 6}">
+      </div>
+      <div class="pad" (touchstart)="tones[tone].exp[7] = !tones[tone].exp[7]"
+        [ngClass]="{'active' : tones[tone].exp[7], 'backlight' : ind.count == 7}">
+      </div>
+      <div class="pad" (touchstart)="tones[tone].exp[8] = !tones[tone].exp[8]"
+        [ngClass]="{'active' : tones[tone].exp[8], 'backlight' : ind.count == 8}">
+      </div>
+    </div>
+
+  </div>
+
+</ion-content>

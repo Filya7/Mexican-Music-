@@ -1,0 +1,181 @@
+<ion-header>
+	<ion-toolbar>
+		<ion-title>Mexican Music</ion-title>
+	</ion-toolbar>
+</ion-header>
+
+<ion-content>
+	<div class="main">
+		<div class="first-section">
+
+			<div class="maracas" (click)="petros = !petros">
+
+				<div class="maracas-gif" *ngIf="petros && tones.first.exp[1] || petros && tones.first.exp[2]  || petros && tones.first.exp[3] || petros && tones.first.exp[4] || 
+				petros && tones.first.exp[5] || petros && tones.first.exp[6] || petros && tones.first.exp[7] || petros && tones.first.exp[8] || petros && tones.first.exp[9] || 
+				petros && tones.first.exp[10] ||
+				petros && tones.second.exp[1] || petros && tones.second.exp[2]  || petros && tones.second.exp[3] || petros && tones.second.exp[4] || 
+				petros && tones.second.exp[5] || petros && tones.second.exp[6] || petros && tones.second.exp[7] || petros && tones.second.exp[8] || petros && tones.second.exp[9] || 
+				petros && tones.second.exp[10] ||
+				petros && tones.third.exp[1] || petros && tones.third.exp[2]  || petros && tones.third.exp[3] || petros && tones.third.exp[4] || 
+				petros && tones.third.exp[5] || petros && tones.third.exp[6] || petros && tones.third.exp[7] || petros && tones.third.exp[8] || petros && tones.third.exp[9] || 
+				petros && tones.third.exp[10]
+				, else play_2">
+					<img src="img/maracas.gif" height="120" width="120">
+				</div>
+
+				<ng-template #play_2>
+					<div class="maracas-jpg">
+						<img src="img/maracas.jpg" height="120" width="120">
+					</div>
+				</ng-template>
+			</div>
+
+			<div class="guitar" (click)="hripsime = !hripsime">
+
+				<div class="guitar-gif" *ngIf="hripsime && tones_1.guitar.exp[1], else play_3">
+					<img src="img/guitar.gif" height="120" width="120">
+				</div>
+				<ng-template #play_3>
+					<div class="guitar-jpg">
+						<img src="img/guitar.jpg" height="120" width="120">
+					</div>
+				</ng-template>
+			</div>
+
+			<div class="drums" (click)="filya = !filya">
+
+				<!-- comment <div class="drums-png">
+					<img src="img/drums.png" height="120" width="120">
+				</div>comment -->
+				<div class="dancer-gif" *ngIf="filya && tones_1.horns.exp[1] || 
+				filya && tones_1.guitar.exp[1] ||
+				filya && tones.first.exp[1] || filya && tones.first.exp[2]  || filya && tones.first.exp[3] || filya && tones.first.exp[4] || 
+				filya && tones.first.exp[5] || filya && tones.first.exp[6] || filya && tones.first.exp[7] || filya && tones.first.exp[8] || filya && tones.first.exp[9] || 
+				filya && tones.first.exp[10] ||
+				filya && tones.second.exp[1] || filya && tones.second.exp[2]  || filya && tones.second.exp[3] || filya && tones.second.exp[4] || 
+				filya && tones.second.exp[5] || filya && tones.second.exp[6] || filya && tones.second.exp[7] || filya && tones.second.exp[8] || filya && tones.second.exp[9] || 
+				filya && tones.second.exp[10] ||
+				filya && tones.third.exp[1] || filya && tones.third.exp[2]  || filya && tones.third.exp[3] || filya && tones.third.exp[4] || 
+				filya && tones.third.exp[5] || filya && tones.third.exp[6] || filya && tones.third.exp[7] || filya && tones.third.exp[8] || filya && tones.third.exp[9] || 
+				filya && tones.third.exp[10]
+				, else play_4">
+					<img src="img/dancer.gif" height="120" width="120">
+				</div>
+
+				<ng-template #play_4>
+					<div class="dancer-jpg">
+						<img src="img/dancer.jpg" height="120" width="120">
+					</div>
+				</ng-template>
+
+			</div>
+			<div class="play" (click)="play()" (click)="petros = !petros" (click)="hripsime = !hripsime" (click)="filya = !filya">
+				<img src="img/play.jpg" height="120" width="120">
+			</div>
+		</div>
+		<div class="second-container">
+			<div class="part_first">
+				<div class="_1st">
+					<div class="rotate-square rs1" (click)="tones.first.exp[1] = !tones.first.exp[1]"
+						[ngClass]="{'active' : tones.first.exp[1], 'backlight' : ind.count == 1}"></div>
+					<div class="rotate-square rs2" (click)="tones.first.exp[2] = !tones.first.exp[2]"
+						[ngClass]="{'active' : tones.first.exp[2], 'backlight' : ind.count == 2}"></div>
+					<div class="rotate-square rs3" (click)="tones.first.exp[3] = !tones.first.exp[3]"
+						[ngClass]="{'active' : tones.first.exp[3], 'backlight' : ind.count == 3}"></div>
+					<div class="rotate-square rs4" (click)="tones.first.exp[4] = !tones.first.exp[4]"
+						[ngClass]="{'active' : tones.first.exp[4], 'backlight' : ind.count == 4}"></div>
+					<div class="rotate-square rs4" (click)="tones.first.exp[5] = !tones.first.exp[5]"
+						[ngClass]="{'active' : tones.first.exp[5], 'backlight' : ind.count == 5}"></div>
+				</div>
+				<div class="_2nd">
+					<div class="square sq1" (click)="tones.second.exp[1] = !tones.second.exp[1]"
+						[ngClass]="{'active' : tones.second.exp[1], 'backlight' : ind.count == 1}"></div>
+					<div class="square sq2" (click)="tones.second.exp[2] = !tones.second.exp[2]"
+						[ngClass]="{'active' : tones.second.exp[2], 'backlight' : ind.count == 2}"></div>
+					<div class="square sq3" (click)="tones.second.exp[3] = !tones.second.exp[3]"
+						[ngClass]="{'active' : tones.second.exp[3], 'backlight' : ind.count == 3}"></div>
+					<div class="square sq4" (click)="tones.second.exp[4] = !tones.second.exp[4]"
+						[ngClass]="{'active' : tones.second.exp[4], 'backlight' : ind.count == 4}"></div>
+					<div class="square sq5" (click)="tones.second.exp[5] = !tones.second.exp[5]"
+						[ngClass]="{'active' : tones.second.exp[5], 'backlight' : ind.count == 5}"></div>
+				</div>
+				<div class="_3th">
+					<div class="circle cl1" (click)="tones.third.exp[1] = !tones.third.exp[1]"
+						[ngClass]="{'active' : tones.third.exp[1], 'backlight' : ind.count == 1}"></div>
+					<div class="circle cl2" (click)="tones.third.exp[2] = !tones.third.exp[2]"
+						[ngClass]="{'active' : tones.third.exp[2], 'backlight' : ind.count == 2}"></div>
+					<div class="circle cl3" (click)="tones.third.exp[3] = !tones.third.exp[3]"
+						[ngClass]="{'active' : tones.third.exp[3], 'backlight' : ind.count == 3}"></div>
+					<div class="circle cl4" (click)="tones.third.exp[4] = !tones.third.exp[4]"
+						[ngClass]="{'active' : tones.third.exp[4], 'backlight' : ind.count == 4}"></div>
+					<div class="circle cl5" (click)="tones.third.exp[5] = !tones.third.exp[5]"
+						[ngClass]="{'active' : tones.third.exp[5], 'backlight' : ind.count == 5}"></div>
+				</div>
+				<div class="_4th">
+
+				</div>
+			</div>
+			<div class="part_second">
+				<div class="_1st">
+					<div class="rotate-square rs6" (click)="tones.first.exp[6] = !tones.first.exp[6]"
+						[ngClass]="{'active' : tones.first.exp[6], 'backlight' : ind.count == 6}"></div>
+					<div class="rotate-square rs7" (click)="tones.first.exp[7] = !tones.first.exp[7]"
+						[ngClass]="{'active' : tones.first.exp[7], 'backlight' : ind.count == 7}"></div>
+					<div class="rotate-square rs8" (click)="tones.first.exp[8] = !tones.first.exp[8]"
+						[ngClass]="{'active' : tones.first.exp[8], 'backlight' : ind.count == 8}"></div>
+					<div class="rotate-square rs9" (click)="tones.first.exp[9] = !tones.first.exp[9]"
+						[ngClass]="{'active' : tones.first.exp[9], 'backlight' : ind.count == 9}"></div>
+					<div class="rotate-square rs10" (click)="tones.first.exp[10] = !tones.first.exp[10]"
+						[ngClass]="{'active' : tones.first.exp[10], 'backlight' : ind.count == 10}"></div>
+				</div>
+
+				<div class="_2nd">
+
+					<div class="square sq6" (click)="tones.second.exp[6] = !tones.second.exp[6]"
+						[ngClass]="{'active' : tones.second.exp[6], 'backlight' : ind.count == 6}"></div>
+					<div class="square sq7" (click)="tones.second.exp[7] = !tones.second.exp[7]"
+						[ngClass]="{'active' : tones.second.exp[7], 'backlight' : ind.count == 7}"></div>
+					<div class="square sq8" (click)="tones.second.exp[8] = !tones.second.exp[8]"
+						[ngClass]="{'active' : tones.second.exp[8], 'backlight' : ind.count == 8}"></div>
+					<div class="square sq9" (click)="tones.second.exp[9] = !tones.second.exp[9]"
+						[ngClass]="{'active' : tones.second.exp[9], 'backlight' : ind.count == 9}"></div>
+					<div class="square sq10" (click)="tones.second.exp[10] = !tones.second.exp[10]"
+						[ngClass]="{'active' : tones.second.exp[10], 'backlight' : ind.count == 10}"></div>
+
+				</div>
+				<div class="_3th">
+
+					<div class="circle cl6" (click)="tones.third.exp[6] = !tones.third.exp[6]"
+						[ngClass]="{'active' : tones.third.exp[6], 'backlight' : ind.count == 6}"></div>
+					<div class="circle cl7" (click)="tones.third.exp[7] = !tones.third.exp[7]"
+						[ngClass]="{'active' : tones.third.exp[7], 'backlight' : ind.count == 7}"></div>
+					<div class="circle cl8" (click)="tones.third.exp[8] = !tones.third.exp[8]"
+						[ngClass]="{'active' : tones.third.exp[8], 'backlight' : ind.count == 8}"></div>
+					<div class="circle cl9" (click)="tones.third.exp[9] = !tones.third.exp[9]"
+						[ngClass]="{'active' : tones.third.exp[9], 'backlight' : ind.count == 9}"></div>
+					<div class="circle cl10" (click)="tones.third.exp[10] = !tones.third.exp[10]"
+						[ngClass]="{'active' : tones.third.exp[10], 'backlight' : ind.count == 10}"></div>
+				</div>
+				<div class="_4th">
+
+				</div>
+			</div>
+
+		</div>
+		<div class="third-container">
+			<div class="_5th">
+				<div class="astxik" (click)="tones_1.guitar.exp[1] = !tones_1.guitar.exp[1]"
+					[ngClass]="{'active' : tones_1.guitar.exp[1], 'backlight' : ind_1.count == 1}"></div>
+			</div>
+			<div class="_6th">
+				<div class="triangle" (click)="tones_1.horns.exp[1] = !tones_1.horns.exp[1]"
+					[ngClass]="{'active' : tones_1.horns.exp[1], 'backlight' : ind_1.count == 1}">
+
+				</div>
+			</div>
+			<div class="_7th">
+
+			</div>
+		</div>
+	</div>
+</ion-content>	

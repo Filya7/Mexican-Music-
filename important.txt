@@ -1,0 +1,159 @@
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+
+import { BeatboxPage } from './beatbox.page';
+
+describe('BeatboxPage', () => {
+  let component: BeatboxPage;
+  let fixture: ComponentFixture<BeatboxPage>;
+
+  beforeEach(async(() => {
+    TestBed.configureTestingModule({
+      declarations: [BeatboxPage],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA],
+    })
+      .compileComponents();
+  }));
+
+  beforeEach(() => {
+    fixture = TestBed.createComponent(BeatboxPage);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+});
+
+
+
+
+ ///////////////////
+
+
+
+ div class="row" *ngFor="let tone of objectKeys(tones); let i = index">
+      <div class="pad" (touchstart)="tones[tone].exp[1] = !tones[tone].exp[1]"
+        [ngClass]="{'active' : tones[tone].exp[1], 'backlight' : ind.count == 1}">
+      </div>
+      <div class="pad" (touchstart)="tones[tone].exp[2] = !tones[tone].exp[2]"
+        [ngClass]="{'active' : tones[tone].exp[2], 'backlight' : ind.count == 2}">
+      </div>
+      <div class="pad" (touchstart)="tones[tone].exp[3] = !tones[tone].exp[3]"
+        [ngClass]="{'active' : tones[tone].exp[3], 'backlight' : ind.count == 3}">
+      </div>
+      <div class="pad" (touchstart)="tones[tone].exp[4] = !tones[tone].exp[4]"
+        [ngClass]="{'active' : tones[tone].exp[4], 'backlight' : ind.count == 4}">
+      </div>
+    </div>
+
+    <div class="row" *ngFor="let tone of objectKeys(tones); let i = index">
+      <div class="pad" (touchstart)="tones[tone].exp[5] = !tones[tone].exp[5]"
+        [ngClass]="{'active' : tones[tone].exp[5], 'backlight' : ind.count == 5}">
+      </div>
+      <div class="pad" (touchstart)="tones[tone].exp[6] = !tones[tone].exp[6]"
+        [ngClass]="{'active' : tones[tone].exp[6], 'backlight' : ind.count == 6}">
+      </div>
+      <div class="pad" (touchstart)="tones[tone].exp[7] = !tones[tone].exp[7]"
+        [ngClass]="{'active' : tones[tone].exp[7], 'backlight' : ind.count == 7}">
+      </div>
+      <div class="pad" (touchstart)="tones[tone].exp[8] = !tones[tone].exp[8]"
+        [ngClass]="{'active' : tones[tone].exp[8], 'backlight' : ind.count == 8}">
+      </div>
+    </div>
+
+
+    ////////////
+
+
+
+
+
+    import { Component } from '@angular/core';
+import { log } from 'util';
+declare var Tone: any;
+@Component({
+  selector: 'app-beatbox',
+  templateUrl: 'beatbox.page.html',
+  styleUrls: ['beatbox.page.scss'],
+})
+export class BeatboxPage {
+  objectKeys = Object.keys;
+  tones = {
+    kick: {
+      exp: {
+        '1': false,
+        '2': false,
+        '3': false,
+        '4': false,
+        '5': false,
+        '6': false,
+        '7': false,
+        '8': false,
+      },
+      sound: new Tone.Player("./assets/sounds/kick.wav").toMaster()
+    },
+    snare: {
+      exp: {
+        '1': false,
+        '2': false,
+        '3': false,
+        '4': false,
+        '5': false,
+        '6': false,
+        '7': false,
+        '8': false,
+      },
+      sound: new Tone.Player("./assets/sounds/snare.wav").toMaster()
+    },
+    hihat: {
+      exp: {
+        '1': false,
+        '2': false,
+        '3': false,
+        '4': false,
+        '5': false,
+        '6': false,
+        '7': false,
+        '8': false,
+      },
+      sound: new Tone.Player("./assets/sounds/hihat.wav").toMaster()
+    },
+    shaker: {
+      exp: {
+        '1': false,
+        '2': false,
+        '3': false,
+        '4': false,
+        '5': false,
+        '6': false,
+        '7': false,
+        '8': false,
+      },
+      sound: new Tone.Player("./assets/sounds/shaker.wav").toMaster()
+    },
+  }
+  ind = { count: 0 };
+  ngOnInit() {
+    let ind = this.ind;
+    let step = this.ind.count % 4;
+    let tones = this.tones;
+    //Tone.Transport.scheduleRepeat(function () { repeat(); }, "8n");
+    Tone.Transport.start();
+    function repeat() {
+      for (let tone in tones) {
+        if (ind.count == 8) ind.count = 0;
+        let currTone = tones[tone];
+        let count = +"1" + ind.count;
+        if (currTone.exp[count]) {
+          Tone.context.resume().then(() => {
+            currTone.sound.start();
+          })
+        }
+      }
+      setTimeout(() => { ind.count++ }, 0);
+    }
+    setInterval(() => { repeat(); }, 500)
+  }
+}
